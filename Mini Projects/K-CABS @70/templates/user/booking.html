@@ -1,0 +1,26 @@
+{% extends "user/index.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/myapp/user_booking_post/">
+    {% csrf_token %}
+
+    <input type="hidden" name="vid" value="{{ vid }}">
+
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Pickup Location</th>
+      <td><input type="text" name="textfield" id="textfield" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <th>Dropoff Location</th>
+      <td><input type="text" name="textfield2" id="textfield2" class="form-control" required/></td>
+    </tr>
+
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" class="btn btn-success" value="Book" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

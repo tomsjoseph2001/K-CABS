@@ -1,0 +1,37 @@
+{% extends "admins/index.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/myapp/admin_car_driver_assign_post/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <th width="180px">Choose car</th>
+      <td>
+          <select name="car" class="form-control" required>
+              {% for i in v %}
+
+                  <option value="{{ i.id }}">{{ i.vehicleregno }}</option>
+
+
+              {% endfor %}
+          </select>
+      </td>
+    </tr>
+    <tr>
+      <th>Choose driver</th>
+      <td>  <select name="driver" class="form-control" required>
+              {% for i in d %}
+              <option value="{{ i.id }}">{{ i.name }}</option>
+
+
+              {% endfor %}
+          </select></td>
+    </tr>
+
+    <tr>
+      <th>&nbsp;</th>
+      <td><input type="submit" name="button" id="button" class="btn btn-success" value="Assign" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
