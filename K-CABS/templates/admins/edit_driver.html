@@ -1,0 +1,59 @@
+{% extends "admins/index.html" %}
+{% block body %}
+
+
+<form action="/myapp/admins_edit_driver_post/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<table  class="table table-bordered">
+  <tr>
+    <th width="180px">Name</th>
+    <td>
+        <input type="text" name="textfield" id="textfield"  value="{{ data.name }}" required class="form-control"/>
+        <input type="hidden" name="id" id="textfield"  value="{{ data.id }}"/>
+
+    </td>
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td><select name="select" id="select" required class="form-control">
+      <option value="Male" {% if data.gender == "Male" %}  selected  {% endif %}>Male</option>
+      <option value="FeMale" {% if data.gender == "FeMale" %}  selected  {% endif %}>FeMale</option>
+    </select></td>
+  </tr>
+  <tr>
+    <th>House Name</th>
+    <td><input type="text" name="textfield2" id="textfield"  value="{{ data.housename }}" required class="form-control" /></td>
+  </tr>
+  <tr>
+    <th>Place</th>
+    <td><input type="text" name="textfield3" id="textfield2" value="{{ data.place }}" required class="form-control" /></td>
+  </tr>
+  <tr>
+    <th>City</th>
+    <td><input type="text" name="textfield4" id="textfield3" value="{{ data.city }}"  required class="form-control"/></td>
+  </tr>
+  <tr>
+    <th>State</th>
+    <td><input type="text" name="textfield5" id="textfield4"  value="{{ data.state }}" required class="form-control" /></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td><input type="text" name="textfield6" id="textfield5" value="{{ data.email }}" required class="form-control" /></td>
+  </tr>
+  <tr>
+    <th>Phone</th>
+    <td><input type="text" name="textfield7" id="textfield6" pattern="[0-9]{10}" value="{{ data.phone }}" required class="form-control"/></td>
+  </tr>
+  <tr>
+    <th>ChoosePhoto</th>
+    <td><input type="file" name="fileField" id="fileField"  class="form-control"/></td>
+  </tr>
+
+  <tr>
+    <th>&nbsp;</th>
+    <td><input type="submit" name="button" id="button" value="Submit"  class="btn btn-success"/></td>
+  </tr>
+</table>
+</form>
+
+{% endblock %}

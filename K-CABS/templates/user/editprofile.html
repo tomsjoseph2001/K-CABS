@@ -1,0 +1,55 @@
+{% extends "user/index.html" %}
+{% block body %}
+
+
+<form action="/myapp/user_editprofile_post/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<table class="table table-bordered table-hover table-striped">
+  <tr>
+    <td>Name</td>
+    <td><input type="text" name="textfield" class="form-control" value="{{ data.name }}" required/></td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+    <td><select name="select" id="select"  class="form-control"/>
+      <option value="Male" {% if data.gender == 'Male' %} selected {% endif %}>Male</option>
+      <option value="FeMale"  {% if data.gender == 'FeMale' %} selected {% endif %}>FeMale</option>
+    </select></td>
+  </tr>
+  <tr>
+    <td>House Name</td>
+    <td><input type="text" name="textfield2" id="textfield" value="{{ data.housename }}" class="form-control" required /></td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td><input type="text" name="textfield3" id="textfield2"value="{{ data.place }}" class="form-control" required  /></td>
+  </tr>
+  <tr>
+    <td>City</td>
+    <td><input type="text" name="textfield4" id="textfield3"value="{{ data.city }}"  class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>State</td>
+    <td><input type="text" name="textfield5" id="textfield4"value="{{ data.state }}" class="form-control" required /></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><input type="email" name="textfield6" id="textfield5"value="{{ data.email }}" class="form-control" required readonly /></td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td><input type="text" name="textfield7" value="{{ data.phone }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>ChoosePhoto</td>
+    <td><img src="{{ data.photo }}" height="60px" width="60px"><input type="file" name="fileField" id="fileField" class="form-control" /></td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="button" id="button" value="Submit" class="btn btn-success"/></td>
+  </tr>
+</table>
+</form>
+
+{% endblock %}

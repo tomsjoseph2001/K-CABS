@@ -1,0 +1,59 @@
+{% extends "admins/index.html" %}
+{% block body %}
+
+
+<form action="/myapp/admin_editvehicle_post/" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+
+
+<input type="hidden" name="id" value="{{ data.id }}">
+
+
+<table class="table table-bordered">
+  <tr>
+    <th width="180px">Vehicle Regno</th>
+    <td><input value="{{ data.vehicleregno}}" type="text" name="textfield" id="textfield" class="form-control" required /></td>
+  </tr>
+  <tr>
+    <th>Vehicle Model</th>
+    <td><input value="{{ data.vehiclemodel}}" type="text" name="textfield1" id="textfield" class="form-control" required /></td>
+  </tr>
+  <tr>
+    <th>Engine Number</th>
+    <td><input value="{{ data.enginenumber}}" type="text" name="textfield2" id="textfield" class="form-control" required  /></td>
+  </tr>
+  <tr>
+    <th>Total seats</th>
+    <td><input value="{{ data.totalseats}}" type="number" name="textfield3" id="textfield2" class="form-control" required="required" min="1" /></td>
+  </tr>
+  <tr>
+    <th>Ac </th>
+    <td><select name="select" id="select" class="form-control" required>
+      <option value="Yes" {% if data.ac_nonac == "Yes" %} selected {% endif %}>Yes</option>
+      <option value="No" {% if data.ac_nonac == "No" %} selected {% endif %}>No</option>
+    </select></td>
+  </tr>
+  <tr>
+    <th>Vehicle Type</th>
+    <td><select name="select2" id="select2" class="form-control" required>
+      <option value="SUV" {% if data.vehicletype == "SUV" %} selected {% endif %}>SUV</option>
+      <option value="HATCHBACK" {% if data.vehicletype == "HATCHBACK" %} selected {% endif %}>HATCHBACK</option>
+      <option value="SEDAN" {% if data.vehicletype == "Swift" %} selected {% endif %}>SEDAN</option>
+      <option value="BIKES" {% if data.vehicletype == "BIKES" %} selected {% endif %}>BIKES</option>
+
+    </select></td>
+  </tr>
+
+    <tr>
+    <th>Choose Photo</th>
+    <td><input type="file" name="file" id="textfield" class="form-control"  /></td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="button" id="button" value="Submit" class="btn btn-success" /></td>
+  </tr>
+</table>
+</form>
+
+{% endblock %}

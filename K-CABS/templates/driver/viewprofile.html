@@ -1,0 +1,49 @@
+{% extends "driver/index.html" %}
+{% block body %}
+
+
+<form action="/myapp/admin_add_clerk_post/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<table  class="table table-bordered">
+    <tr>
+        <td colspan="2">
+            <img src="{{ u.photo }}" width="150px" height="150px"/>
+        </td>
+    </tr>
+  <tr>
+    <th width="180px">Name</th>
+    <td>{{ u.name }}</td>
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td>{{ u.gender }}</td>
+  </tr>
+  <tr>
+    <th>House Name</th>
+    <td>{{ u.housename }}</td>
+  </tr>
+  <tr>
+    <th>Place</th>
+    <td>{{ u.place }}</td>
+  </tr>
+  <tr>
+    <th>City</th>
+    <td>{{ u.city }}</td>
+  </tr>
+  <tr>
+    <th>State</th>
+    <td>{{ u.state }}</td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td>{{ u.email }}</td>
+  </tr>
+  <tr>
+    <th>Phone</th>
+    <td>{{ u.phone }}</td>
+
+
+</table>
+</form>
+
+{% endblock %}

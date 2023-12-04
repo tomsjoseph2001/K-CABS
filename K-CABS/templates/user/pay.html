@@ -1,0 +1,46 @@
+{% extends "user/index.html" %}
+{% block body %}
+
+
+<form method="post" action="/myapp/userpayment_post/">
+
+    {% csrf_token %}
+
+    <input type="hidden" name="id" value="{{ bid }}"/>
+
+<table class="table table-bordered">
+    <tr>
+        <td width="150px">Account number</td>
+        <td>
+            <input id="a" type="text"  name="a" placeholder="Account number" class="form-control" required>
+        </td>
+    </tr>
+     <tr>
+        <td>IFSC code</td>
+        <td>
+            <input id="a" type="text"  name="i" placeholder="IFSC code" class="form-control" required>
+        </td>
+    </tr>
+     <tr>
+        <td>Password</td>
+        <td>
+            <input id="a" type="password"  name="p" placeholder="Password" class="form-control" required>
+        </td>
+    </tr>
+       <tr>
+        <td>Amount</td>
+        <td>
+            <input id="a" type="number" value="{{ amount }}"  name="am" placeholder="Amount" min="100" class="form-control" required>
+        </td>
+    </tr>
+
+  <tr>
+    <td></td>
+    <td>
+    <input type="submit" name="pay" value="Pay"/>
+    </td>
+  </tr>
+</table>
+</form>
+
+{% endblock %}

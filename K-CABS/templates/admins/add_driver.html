@@ -1,0 +1,55 @@
+{% extends "admins/index.html" %}
+{% block body %}
+
+
+<form action="/myapp/admins_add_driver_post/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<table  class="table table-bordered">
+  <tr>
+    <th width="180px">Name</th>
+    <td><input type="text" name="textfield" id="textfield" required class="form-control" /></td>
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td><select name="select" id="select" class="form-control" required>
+      <option value="Male">Male</option>
+      <option value="FeMale">FeMale</option>
+    </select></td>
+  </tr>
+  <tr>
+    <th>House Name</th>
+    <td><input type="text" name="textfield2" id="textfield" required class="form-control" /></td>
+  </tr>
+  <tr>
+    <th>Place</th>
+    <td><input type="text" name="textfield3" id="textfield2" required class="form-control" /></td>
+  </tr>
+  <tr>
+    <th>City</th>
+    <td><input type="text" name="textfield4" id="textfield3" required class="form-control" /></td>
+  </tr>
+  <tr>
+    <th>State</th>
+    <td><input type="text" name="textfield5" id="textfield4" required class="form-control" /></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td><input type="email" name="textfield6" id="textfield5" required  class="form-control"/></td>
+  </tr>
+  <tr>
+    <th>Phone</th>
+    <td><input type="text" pattern="[0-9]{10}"  required name="textfield7" id="textfield6" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th>ChoosePhoto</th>
+    <td><input type="file" name="fileField" id="fileField" required class="form-control" /></td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="button" id="button" value="Submit" class="btn btn-success" /></td>
+  </tr>
+</table>
+</form>
+
+{% endblock %}
